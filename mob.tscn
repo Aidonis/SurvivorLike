@@ -7,9 +7,13 @@
 radius = 52.0
 
 [node name="Mob" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+platform_floor_layers = 0
 script = ExtResource("1_b5p8g")
 
 [node name="Slime" parent="." instance=ExtResource("1_d8yvo")]
+unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -29)

@@ -1,13 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4p1lqhj2gqod"]
+[gd_scene load_steps=8 format=3 uid="uid://c4p1lqhj2gqod"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_158ou"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_trxyi"]
+[ext_resource type="PackedScene" uid="uid://cbaehdrcw63jc" path="res://gun.tscn" id="3_ymaad"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mayie"]
-radius = 45.0
-height = 110.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_rc3cq"]
+radius = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ngkq2"]
+radius = 32.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xs8fb"]
+bg_color = Color(0.211765, 0.211765, 0.211765, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mldp8"]
+bg_color = Color(0, 0.717647, 0.360784, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Player" type="CharacterBody2D"]
+platform_floor_layers = 0
 script = ExtResource("1_158ou")
 
 [node name="HappyBoo" parent="." instance=ExtResource("1_trxyi")]
@@ -15,5 +33,32 @@ unique_name_in_owner = true
 position = Vector2(-1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -44)
-shape = SubResource("CapsuleShape2D_mayie")
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_rc3cq")
+debug_color = Color(0, 0.6, 0.701961, 0.25098)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Gun" parent="." instance=ExtResource("3_ymaad")]
+position = Vector2(0, -33)
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_ngkq2")
+debug_color = Color(0.988235, 0.113725, 0, 0.192157)
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -151.0
+offset_top = -127.0
+offset_right = 152.0
+offset_bottom = -100.0
+theme_override_styles/background = SubResource("StyleBoxFlat_xs8fb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mldp8")
+value = 100.0
+show_percentage = false
