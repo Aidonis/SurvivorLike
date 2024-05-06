@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://cfvstqu2dc2qf"]
+
+[ext_resource type="Script" path="res://model/weapon.gd" id="1_pisyx"]
+
+[resource]
+script = ExtResource("1_pisyx")
+name = "Pistol"
+bullets = 3
+rate_of_fire = 1.0

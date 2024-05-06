@@ -1,15 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbaehdrcw63jc"]
+[gd_scene load_steps=5 format=3 uid="uid://bbnv4pl6pr6p2"]
 
-[ext_resource type="Script" path="res://gun.gd" id="1_nesuj"]
-[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://pistol/pistol.png" id="2_exdul"]
+[ext_resource type="Script" path="res://pistol.gd" id="1_xaddj"]
+[ext_resource type="Resource" uid="uid://cfvstqu2dc2qf" path="res://data/weapons/pistol.tres" id="2_r3woc"]
+[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://pistol/pistol.png" id="3_osmot"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_plw3b"]
 radius = 320.0
 
-[node name="Gun" type="Area2D"]
+[node name="pistol" type="Area2D"]
 collision_layer = 0
 collision_mask = 2
-script = ExtResource("1_nesuj")
+script = ExtResource("1_xaddj")
+weapon = ExtResource("2_r3woc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_plw3b")
@@ -20,13 +22,14 @@ position = Vector2(12, 0)
 
 [node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
 position = Vector2(82, 0)
-texture = ExtResource("2_exdul")
+texture = ExtResource("3_osmot")
 
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
 unique_name_in_owner = true
 position = Vector2(25, -10)
 
 [node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
 wait_time = 0.3
 autostart = true
 

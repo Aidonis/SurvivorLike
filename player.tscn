@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player.gd" id="1_158ou"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_trxyi"]
-[ext_resource type="PackedScene" uid="uid://cbaehdrcw63jc" path="res://gun.tscn" id="3_ymaad"]
+[ext_resource type="PackedScene" uid="uid://bbnv4pl6pr6p2" path="res://pistol.tscn" id="3_ddyal"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rc3cq"]
 radius = 28.0
@@ -39,8 +39,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.25098)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Gun" parent="." instance=ExtResource("3_ymaad")]
-position = Vector2(0, -33)
+[node name="pistol" parent="." instance=ExtResource("3_ddyal")]
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
